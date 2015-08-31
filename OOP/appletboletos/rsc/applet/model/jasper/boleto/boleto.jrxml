@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="listagemGrupoProduto" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20" uuid="b171d7b6-833a-4f24-8a61-264ac3a8a4d2">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="166"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<subDataset name="instrucoes_ds" uuid="79059f45-f87a-4d45-82cc-88e87393b4f4">
+		<field name="_THIS" class="java.lang.String">
+			<fieldDescription><![CDATA[_THIS]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Fernandão\\Desktop\\Boleto\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUB_INSTRUCOES" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="MENSAGEM_BANCO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nomeBeneficiario" class="java.lang.String">
+		<fieldDescription><![CDATA[beneficiario.nomeBeneficiario]]></fieldDescription>
+	</field>
+	<field name="nomePagador" class="java.lang.String">
+		<fieldDescription><![CDATA[pagador.nome]]></fieldDescription>
+	</field>
+	<field name="enderecoBeneficiario" class="java.lang.String">
+		<fieldDescription><![CDATA[beneficiario.endereco.enderecoCompleto]]></fieldDescription>
+	</field>
+	<field name="documentoBeneficiario" class="java.lang.String">
+		<fieldDescription><![CDATA[beneficiario.documento]]></fieldDescription>
+	</field>
+	<field name="aceite" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[aceite]]></fieldDescription>
+	</field>
+	<field name="agenciaECodBeneficiario" class="java.lang.String">
+		<fieldDescription><![CDATA[agenciaECodigoBeneficiario]]></fieldDescription>
+	</field>
+	<field name="enderecoPagador" class="java.lang.String">
+		<fieldDescription><![CDATA[pagador.endereco.enderecoCompleto]]></fieldDescription>
+	</field>
+	<field name="codigoDeBarras" class="java.lang.String">
+		<fieldDescription><![CDATA[codigoDeBarras]]></fieldDescription>
+	</field>
+	<field name="numeroDocumento" class="java.lang.String">
+		<fieldDescription><![CDATA[numeroDoDocumentoFormatado]]></fieldDescription>
+	</field>
+	<field name="dataDoDocumento" class="java.util.Calendar">
+		<fieldDescription><![CDATA[datas.documento]]></fieldDescription>
+	</field>
+	<field name="dataDeVencimento" class="java.util.Calendar">
+		<fieldDescription><![CDATA[datas.vencimento]]></fieldDescription>
+	</field>
+	<field name="cpfCnpjPagador" class="java.lang.String">
+		<fieldDescription><![CDATA[pagador.cpfCnpj]]></fieldDescription>
+	</field>
+	<field name="cpfCnpjBeneficiario" class="java.lang.String">
+		<fieldDescription><![CDATA[beneficiario.cpfCnpj]]></fieldDescription>
+	</field>
+	<field name="valorDocumento" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[valorBoleto]]></fieldDescription>
+	</field>
+	<field name="nossoNumero" class="java.lang.String">
+		<fieldDescription><![CDATA[nossoNumeroECodDocumento]]></fieldDescription>
+	</field>
+	<field name="locaisDePagamento" class="java.util.List">
+		<fieldDescription><![CDATA[locaisDePagamento]]></fieldDescription>
+	</field>
+	<field name="numeroFormatadoComDigito" class="java.lang.String">
+		<fieldDescription><![CDATA[banco.numeroFormatadoComDigito]]></fieldDescription>
+	</field>
+	<field name="linhaDigitavel" class="java.lang.String">
+		<fieldDescription><![CDATA[linhaDigitavel]]></fieldDescription>
+	</field>
+	<field name="especieDocumento" class="java.lang.String">
+		<fieldDescription><![CDATA[especieDocumento]]></fieldDescription>
+	</field>
+	<field name="dataProcessamento" class="java.util.Calendar">
+		<fieldDescription><![CDATA[datas.processamento]]></fieldDescription>
+	</field>
+	<field name="carteira" class="java.lang.String">
+		<fieldDescription><![CDATA[carteira]]></fieldDescription>
+	</field>
+	<field name="especieMoeda" class="java.lang.String">
+		<fieldDescription><![CDATA[especieMoeda]]></fieldDescription>
+	</field>
+	<field name="logoBanco" class="java.net.URL">
+		<fieldDescription><![CDATA[banco.image]]></fieldDescription>
+	</field>
+	<field name="instrucoes" class="java.util.List">
+		<fieldDescription><![CDATA[instrucoes]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="123" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-1" x="426" y="109" width="102" height="11" uuid="3c28b399-65f3-4d6e-a1ae-cfa311f02095"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECIBO DO PAGADOR]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="207" splitType="Stretch">
+			<rectangle>
+				<reportElement key="rectangle-2" mode="Transparent" x="0" y="0" width="528" height="182" uuid="6aaa5532-0369-491b-9ce5-fd8b0bdddfd3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-4" mode="Opaque" x="266" y="48" width="121" height="22" forecolor="#B9B9B9" backcolor="#B9B9B9" uuid="8b1a4875-024c-4939-94d9-82e590e2dceb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-5" mode="Opaque" x="183" y="48" width="84" height="22" forecolor="#B9B9B9" backcolor="#B9B9B9" uuid="a9561c11-d4a1-47f2-8755-7b1b0514f1c4"/>
+			</rectangle>
+			<line>
+				<reportElement key="line-1" x="0" y="23" width="528" height="1" uuid="5c7d963e-be39-4860-8cda-f88a589d78fd"/>
+			</line>
+			<rectangle>
+				<reportElement key="rectangle-3" x="109" y="0" width="71" height="23" uuid="dd88004f-69d7-4398-bfb0-529ab10a9f21"/>
+			</rectangle>
+			<line>
+				<reportElement key="line-2" x="0" y="47" width="528" height="1" uuid="47dbcca9-6fea-4ef8-b611-84eb7b6e9320"/>
+			</line>
+			<line>
+				<reportElement key="line-3" x="0" y="70" width="528" height="1" uuid="fd0ba903-f139-4cd8-b7d6-eb0ae786ec19"/>
+			</line>
+			<line>
+				<reportElement key="line-4" x="0" y="95" width="528" height="1" uuid="da3540b8-4fb4-48a5-8687-5c7276626c7b"/>
+			</line>
+			<line>
+				<reportElement key="line-5" x="183" y="47" width="1" height="23" uuid="4094eada-aad3-4fb4-b030-4fd5604972a2"/>
+			</line>
+			<line>
+				<reportElement key="line-7" x="388" y="23" width="1" height="73" uuid="e6b0d4b3-dd7f-4ee7-be8b-2526ad8c9b87"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-2" x="7" y="25" width="31" height="10" uuid="8e3c4fff-80b8-460a-8812-f63f8bee762b"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pagador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-3" x="391" y="25" width="85" height="12" uuid="883d2447-dc70-46dd-9752-86d892eefadb"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF / CNPJ do Pagador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-4" x="390" y="49" width="61" height="12" uuid="1505e29d-c2e1-4df9-9992-895ff82526fb"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Cobrado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-5" x="390" y="72" width="85" height="12" uuid="81ddf861-c97a-4f83-924f-0c32bb2198c4"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF / CNPJ do Beneficiário]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-9" x="270" y="47" width="1" height="23" uuid="3922c23d-64e3-4faf-96d2-8b932f02ee79"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-6" x="189" y="48" width="47" height="13" uuid="44670b89-ae91-4585-8f44-1e8f5aee0c17"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vencimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-7" x="272" y="48" width="75" height="13" uuid="1616e031-7d15-4202-807c-579e5a9c5ef0"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Documento]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-10" x="102" y="48" width="1" height="23" uuid="27da8612-75ce-401b-b91b-5c8a8c108cb0"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-8" x="6" y="48" width="53" height="10" uuid="9f345718-bd5c-4c8a-87d8-49333f926d0c"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nosso Número]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-9" x="104" y="48" width="53" height="10" uuid="c1b128a3-7486-42b9-8ff9-96f4da74f346"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nr documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-10" x="6" y="72" width="53" height="10" uuid="fd727715-058d-439e-ae54-69aea3a68676"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Beneficiário]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-6" x="266" y="119" width="262" height="63" uuid="0ca6effb-3c29-48d0-a793-29f9cd092998"/>
+			</rectangle>
+			<line>
+				<reportElement key="line-11" x="0" y="119" width="528" height="1" uuid="4973e500-7104-4b9d-b558-acabf101aa19"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-11" x="6" y="97" width="89" height="10" uuid="ed8da441-815c-4407-b1b7-ac1e7f8ff774"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Endereço do Beneficiário]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-12" x="0" y="144" width="266" height="1" uuid="fa4f3b71-446e-4cd9-8152-2a58ae0648da"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-12" x="6" y="121" width="108" height="10" uuid="e7c953fa-90aa-4f0e-b798-166962853da7"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Agência / Código do Beneficiário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-14" x="268" y="122" width="144" height="10" uuid="ade62717-f628-4bb4-a72c-16fe18f215a9"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Autenticação Mecânica - Recibo do Pagador]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-14" x="6" y="203" width="526" height="1" uuid="99d9bf5e-40d5-442b-a6ea-f034bd0f4798"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement key="staticText-15" x="476" y="194" width="62" height="10" uuid="2be4001a-9b94-438a-a65d-5d63f458b397"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Corte na linha abaixo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="7" y="83" width="380" height="12" uuid="686f98cc-0fe4-4fa2-ba91-e050b0b0ebdf"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeBeneficiario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="35" width="382" height="12" uuid="96cd493f-8edf-423f-a001-1f3c391e4dc4"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomePagador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="59" width="88" height="12" uuid="970c1bc6-8ce8-4699-9e08-e43a826280c7"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nossoNumero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="104" y="59" width="78" height="11" uuid="40c7a23a-93db-4908-9ea8-a086bb98daf2"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="189" y="58" width="79" height="12" uuid="c38ec189-530b-48ad-9afd-6a4f40297737"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy").format($F{dataDeVencimento}.getTime())]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="274" y="58" width="114" height="12" uuid="9a9bf030-892e-4205-9947-935a22778c79"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valorDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="107" width="522" height="12" uuid="b1ff0361-0499-48ee-b852-e169da92f285"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enderecoBeneficiario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="132" width="258" height="13" uuid="e59e93ab-5a8d-4070-8ab9-0617784f2c39"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agenciaECodBeneficiario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="35" width="135" height="12" uuid="488b4b4d-39e1-4170-a21d-3c722f76cb6a"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cpfCnpjPagador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="83" width="131" height="12" uuid="6702951c-3d76-48fe-8c8e-163e132f4cd4"/>
+				<textElement>
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cpfCnpjBeneficiario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="2" width="413" height="20" uuid="76c72be2-ddd3-4407-86aa-802e9b0d87b0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{linhaDigitavel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="109" y="0" width="71" height="23" uuid="fcb2a742-c11b-4862-8474-7dbe0adae975"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroFormatadoComDigito}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RetainShape">
+				<reportElement x="3" y="3" width="107" height="18" uuid="0bb029e8-58e5-436e-9c3e-595ada969d28"/>
+				<imageExpression><![CDATA[$F{logoBanco}]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="145" width="263" height="37" uuid="45e2c631-487e-46ae-ae76-555bda88d9d6"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{MENSAGEM_BANCO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="472" splitType="Stretch">
+			<rectangle>
+				<reportElement key="rectangle-7" x="4" y="7" width="528" height="360" uuid="b8f4be9a-79c3-4060-8ac5-82efd75ef186"/>
+			</rectangle>
+			<line>
+				<reportElement key="line-15" x="114" y="7" width="1" height="24" uuid="c783fa9c-3cfe-4702-b7ea-838ee6924d4f"/>
+			</line>
+			<line>
+				<reportElement key="line-16" x="165" y="7" width="1" height="24" uuid="35561cc5-d4a0-4b87-91df-60434e472407"/>
+			</line>
+			<line>
+				<reportElement key="line-17" x="4" y="31" width="528" height="1" uuid="dad07694-6e2c-4986-ae06-148bf8b61474"/>
+			</line>
+			<line>
+				<reportElement key="line-18" x="5" y="59" width="528" height="1" uuid="666f29a2-b621-4aed-893d-586fac31b78d"/>
+			</line>
+			<line>
+				<reportElement key="line-19" x="5" y="86" width="528" height="1" uuid="2014e784-4893-4964-9cb6-a950881ecc91"/>
+			</line>
+			<rectangle>
+				<reportElement key="rectangle-8" mode="Opaque" x="380" y="32" width="151" height="26" forecolor="#B9B9B9" backcolor="#B9B9B9" uuid="b8266ff1-6cba-4961-b615-9ac420f0b2b7"/>
+			</rectangle>
+			<line>
+				<reportElement key="line-20" x="380" y="32" width="1" height="54" uuid="dad6f705-8e96-4d1a-9e9a-df3b839f0003"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-16" x="383" y="33" width="46" height="10" uuid="2a727860-e612-43b7-a34d-b67045fd9d9e"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vencimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-17" x="382" y="61" width="131" height="10" uuid="c5193f77-2748-4cf9-ac1d-f001670c8a34"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Agência / Código do Beneficiário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-18" x="246" y="61" width="111" height="10" uuid="eb83be4e-393b-4d70-9132-246946298028"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF / CNPJ do Beneficiário]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-21" x="243" y="60" width="1" height="26" uuid="747d327c-4af7-4c22-b4d9-ba5999f0bc02"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-19" x="7" y="62" width="57" height="10" uuid="493145d0-6ec4-4139-bbf3-9e3ca39032ee"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Beneficiário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-20" x="7" y="34" width="82" height="10" uuid="9687ec8b-e4bc-4813-a2e5-dc1f5fe52f9a"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Local de pagamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-21" x="7" y="89" width="107" height="10" uuid="e567f7f3-071e-4e68-828f-15cd09d2aba1"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Endereço do Beneficiário]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-22" x="5" y="114" width="528" height="1" uuid="a40e9a01-191c-432c-9052-268d5c8b4214"/>
+			</line>
+			<line>
+				<reportElement key="line-23" x="5" y="141" width="528" height="1" uuid="18925257-cea3-4e81-a239-b71e927ea34d"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-22" x="7" y="116" width="76" height="10" uuid="ed96d526-e47e-45b1-89e2-bca25613a690"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data do Documento]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-24" x="94" y="115" width="1" height="51" uuid="b127dea3-ff09-4f7a-adab-ed92d61f7947"/>
+			</line>
+			<line>
+				<reportElement key="line-25" x="190" y="114" width="1" height="52" uuid="362b5d54-c79f-4a57-bdf5-522c2a753359"/>
+			</line>
+			<line>
+				<reportElement key="line-26" x="274" y="114" width="1" height="52" uuid="9cf3d974-edff-4dd3-bfcb-53346f86c8cb"/>
+			</line>
+			<line>
+				<reportElement key="line-27" x="339" y="115" width="1" height="51" uuid="6bb7541d-ee75-4f32-919c-5eac9b752472"/>
+			</line>
+			<line>
+				<reportElement key="line-28" x="5" y="166" width="528" height="1" uuid="33e8ba1a-00fc-47e0-9791-79bc6da68652"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-23" x="99" y="116" width="76" height="10" uuid="25276bf7-6e3c-47da-b339-d2e80aa532a9"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nr do Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-24" x="195" y="116" width="48" height="10" uuid="b9d37271-bd9e-4f96-b36f-d8f330d702b0"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Espécie DOC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-25" x="279" y="116" width="26" height="10" uuid="4ae40c3b-109e-4b52-a423-05bc72c3be40"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aceite]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-26" x="341" y="116" width="70" height="10" uuid="ffbabf78-0af2-4709-a27c-b21c1f42a8a5"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Processamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-27" x="415" y="116" width="59" height="10" uuid="c327fe10-5ba4-4fd3-9574-552b9a8ad4f9"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nosso Número]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-9" mode="Opaque" x="414" y="142" width="117" height="24" forecolor="#B9B9B9" backcolor="#B9B9B9" uuid="7236abe8-4caa-42bd-abea-2e6d837f41f4"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-28" x="6" y="144" width="58" height="10" uuid="a2bf9218-4d52-496a-bc6b-c1ee95f0e93f"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Uso do Banco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-29" x="98" y="143" width="52" height="10" uuid="2b4a41d0-e4be-415f-984f-985685159be6"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Carteira]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-30" x="193" y="143" width="72" height="10" uuid="cf3df521-c856-45ce-93ac-06b7f220992e"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Espécie Moeda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-31" x="277" y="143" width="52" height="10" uuid="1f642652-4a57-4af6-84b0-f3afd5b08fde"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qtde Moeda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-32" x="341" y="143" width="52" height="10" uuid="6540822e-d9bf-4646-876a-46d6af6b4f5c"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[x Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-33" x="415" y="143" width="98" height="10" uuid="609c7dc9-8fa5-43b5-a8a8-5af089d15996"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(=)Valor Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-34" x="7" y="170" width="218" height="10" uuid="417f31db-1d1f-4184-b2e6-72e47f370b78"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Instruções (texto de responsabilidade do Beneficiário)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-10" mode="Transparent" x="414" y="166" width="118" height="26" forecolor="#000000" backcolor="#999999" uuid="7d1331fa-15b3-4bf1-936f-8977ced31885"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-11" mode="Transparent" x="414" y="192" width="118" height="26" forecolor="#000000" backcolor="#999999" uuid="fc479477-0adc-4422-ab0b-4b5e6cfe8c8b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-12" mode="Transparent" x="414" y="218" width="118" height="26" forecolor="#000000" backcolor="#999999" uuid="ef4f5a55-f542-45d2-896b-c6ae1aa81437"/>
+			</rectangle>
+			<rectangle>
+				<reportElement key="rectangle-13" mode="Transparent" x="414" y="244" width="118" height="26" forecolor="#000000" backcolor="#999999" uuid="26c39843-9fd1-4962-9b80-5a749f3bcf78"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-35" x="416" y="168" width="52" height="10" uuid="aae60e26-47f3-46c5-ac9c-6e3634936a4e"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(-) Descontos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-36" x="416" y="194" width="108" height="10" uuid="477ab8f5-9b33-49db-b576-2887feaf3151"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(-) Outras deduções / Abatimentos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-37" x="416" y="221" width="108" height="10" uuid="c0b5fa04-fee8-47f6-ad5d-93a92dd7ff58"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(+) Mora / Multa / Juros]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-38" x="416" y="247" width="108" height="10" uuid="0925608f-9ca2-4dc7-93aa-7cb1a0beb6f0"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(+) Outros Acréscimos]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement key="rectangle-14" mode="Transparent" x="414" y="270" width="118" height="26" forecolor="#000000" backcolor="#999999" uuid="de490659-823e-4326-b65a-78ef980a845e"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="staticText-39" x="416" y="272" width="108" height="10" uuid="1cc4a13d-155b-47a8-880f-f3ce34551397"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(=) Valor Cobrado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-40" x="388" y="306" width="57" height="10" uuid="5432c390-8b13-472c-acae-c58de933ce20"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF / CNPJ:]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-30" x="5" y="296" width="528" height="1" uuid="789d15de-4a5e-4d13-a288-a28e880c46f4"/>
+			</line>
+			<staticText>
+				<reportElement key="staticText-41" x="388" y="336" width="57" height="10" uuid="19d5e181-0fa9-4512-8f4b-cb3fc22d221a"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF / CNPJ:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-42" x="7" y="306" width="35" height="10" uuid="0cee6bef-7107-4b99-a690-a88014569617"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pagador:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-43" x="6" y="342" width="77" height="10" uuid="e1825367-72fb-476f-bda8-1b6ace785c42"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sacador/Avalista:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-44" x="347" y="371" width="186" height="10" uuid="e3e0227e-80d8-4d5c-90bb-ebe97dff7af0"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Autenticação Mecânica - Ficha de Compensação]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line-29" x="414" y="115" width="1" height="59" uuid="38000a7f-48df-49fb-8c6a-10a719f24967"/>
+			</line>
+			<textField>
+				<reportElement x="5" y="7" width="522" height="24" uuid="41fda641-f271-4a8b-b77a-cf01fff2cb63"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{linhaDigitavel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="116" y="8" width="48" height="24" uuid="c516c431-4cd3-4c1b-91cc-e4e02471bebe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroFormatadoComDigito}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="8" y="48" width="373" height="14" uuid="8e89aa2e-524e-4483-8f6b-2e130bdb37d8"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{locaisDePagamento}.get(0)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="74" width="236" height="13" uuid="bca5c3fd-0f75-4e4f-a9f4-506c31a0057e"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeBeneficiario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="247" y="74" width="133" height="15" uuid="08bb7838-8037-4865-9db5-80841f6fab79"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cpfCnpjBeneficiario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="46" width="145" height="14" uuid="fc6fe057-0561-461a-8d90-ebb9493ebf72"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy").format($F{dataDeVencimento}.getTime())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="101" width="524" height="15" uuid="5e588fe3-6579-4445-baad-d330b9526c3c"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enderecoBeneficiario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="128" width="83" height="15" uuid="f1322276-624a-4cf4-af59-2d0663995d3e"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy").format( $F{dataDoDocumento}.getTime())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="99" y="128" width="91" height="16" uuid="a1e7d19e-7ad1-4355-967d-e3ea640a7652"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="196" y="129" width="79" height="15" uuid="98bf116b-6461-45a3-b84d-ae2e69eea0cb"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{especieDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="131" width="56" height="13" uuid="5c024439-4018-4658-8e23-b1a58e7676cb"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{aceite} ? "S" : "N"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="343" y="127" width="71" height="13" uuid="f82917f4-aa54-4d6a-9520-d4064f05fd2f"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy").format($F{dataProcessamento}.getTime())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="124" width="115" height="16" uuid="e1fbb6a3-7d1d-4691-a223-6889405f8a98"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nossoNumero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="99" y="154" width="91" height="16" uuid="0254d98f-3810-4783-bee4-dfe5a0fa2d70"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{carteira}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="155" width="79" height="13" uuid="8a0f85a5-a293-4d34-9dc4-b02f6acbcfd3"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{especieMoeda}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="416" y="156" width="116" height="13" uuid="2ca1a0bd-1888-407d-a93e-98a3428fb453"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valorDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="74" width="148" height="14" uuid="faee1023-1f4c-4215-9f46-fff82e8e6af3"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agenciaECodBeneficiario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="47" y="306" width="336" height="10" uuid="49fae653-045b-445c-a924-e926f4ff3fda"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomePagador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="47" y="316" width="477" height="10" uuid="a1de93ea-dbcb-4aab-91eb-e6a8b12a1a24"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enderecoPagador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="306" width="95" height="10" uuid="69788857-1945-4de9-8dbd-16b5b1d5a6fa"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cpfCnpjPagador}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RetainShape">
+				<reportElement x="9" y="10" width="101" height="18" uuid="e459aed0-11db-4592-80f3-a4ab16e1db87"/>
+				<imageExpression><![CDATA[$F{logoBanco}]]></imageExpression>
+			</image>
+			<componentElement>
+				<reportElement stretchType="RelativeToBandHeight" x="17" y="382" width="303" height="41" uuid="708434e0-1674-4d81-a8c4-2458feabf0c3"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Int2of5" drawText="false" checksumRequired="false" barWidth="0" barHeight="0">
+					<jr:codeExpression><![CDATA[$F{codigoDeBarras}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<subreport>
+				<reportElement x="7" y="192" width="404" height="101" uuid="c70c3af0-1709-4999-b4c9-8266b313a62c"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{instrucoes})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUB_INSTRUCOES}]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <project basedir="." default="yguard" name="appletBoletos">
+    <property environment="env"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+	
+	<target name="init">
+		<property name="project_name" value="AppletBoleto"/>
+		<property name="srcDir" value="./src"/>
+		<property name="rscDir" value="./rsc"/>
+		<property name="classDir" value="./bin"/>
+		<property name="libdir"  value="./3rdparty"/>
+		<property name="jar" value="${project_name}.jar"/>
+		<property name="obfjar" value="${project_name}_obf.jar"/>
+		<property name="renamelog" value="${project_name}_renamelog.xml"/>
+		<property name="shrinklog" value="${project_name}_shrinklog.xml"/>
+		<property name="mainclass" value="applet.view.AppletBoletos"/>
+		<mkdir dir="${classDir}" />
+    </target>
+	
+	<path id="classpath">
+        <fileset dir="./3rdparty" includes="**/*.jar"/>
+    </path>
+	
+	<target depends="jar" name="yguard">
+      <taskdef name="yguard" classname="com.yworks.yguard.YGuardTask"
+      classpath="yguard.jar"/>
+        <yguard>
+        <inoutpair in="${jar}" out="${obfjar}"/>
+        
+		<shrink logfile="${shrinklog}">
+			<keep>
+				<method name="void main(java.lang.String[])" class="${mainclass}" />
+				<class classes="public"/>
+			</keep>		
+    	</shrink>
+
+        <rename mainclass="${mainclass}" logfile="${renamelog}">
+			<property name="error-checking" value="pedantic"/>
+			<keep>
+				<class classes="public"/>
+			</keep>
+        </rename>
+      </yguard>
+    </target>
+    
+	<target name="compile" depends="init">		
+      <javac srcdir="${srcDir}" includes="applet/**/*.java,applet/**/**/*.java,network/**/*.java"
+        destdir="${classDir}" classpathref="classpath">		
+	   </javac>
+    </target> 
+	
+	<target name="jar" depends="compile">
+      <jar jarfile="${jar}"
+        basedir="${classDir}"
+        includes="applet/**/,applet/**/**/,network/**/">
+        <fileset dir="${rscDir}">
+          <include name="applet/model/jasper/boleto/*.jasper"/>
+        </fileset>
+      </jar>
+    </target>
+
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+
+</project>
